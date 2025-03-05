@@ -1,0 +1,31 @@
+ECHO is on.
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Temporary files
+tmp/
+
+# Log files
+*.log
+
+
+
+# Windows
+Thumbs.db
+
+# Downloaded audio files
+*.mp3
+*.wav
+
+# Whisper model cache
+*.pt
+*.bin
+
+# Ignore virtual environments
+venv/
+audio/
+audiokernel/
