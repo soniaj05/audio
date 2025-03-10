@@ -2,11 +2,10 @@
 import os
 import whisper
 from fastapi import HTTPException
-import logging
+from app.utils.logger import *
 from app.database import get_db
 from app.models.audio import Audio
 
-logger = logging.getLogger(__name__)
 model = whisper.load_model("base")
 
 def validate_audio_file(file_path: str):

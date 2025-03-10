@@ -56,8 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
         signupForm.addEventListener("submit", async (e) => {
             e.preventDefault();
             const name = document.getElementById("name").value;
-            const phone = document.getElementById("phone").value;
+            const phone = document.getElementById("phone").value ;
             const password = document.getElementById("password").value;
+            console.log("phone number",phone);
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must be exactly 10 digits.");
+                return; // Stop form submission
+            }    
 
             try {
                 const response = await fetch(`${API_BASE_URL}/users/`, {
@@ -69,6 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error("Backend error:", errorData);
                     throw new Error("Signup failed");
                 }
 

@@ -7,7 +7,7 @@ from pydantic import BaseModel
 class Audio(Base):
     __tablename__ = 'audio'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    file_path = Column(String(255), nullable=False)  # Changed from 'url' to 'file_path'
+    file_path = Column(String(255), nullable=False)  
     transcribed = Column(Text, nullable=False)
     status=Column(String(50),default="pending")
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
